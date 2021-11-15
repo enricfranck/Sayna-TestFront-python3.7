@@ -14,12 +14,19 @@
 -create a file .env
 
 -past this:
+
 USE_SQLITE_DB: False
+
 POSTGRES_DB: mydb
+
 POSTGRES_USER:postgres
+
 POSTGRES_PASSWORD:postgres
+
 POSTGRES_SERVER: localhost
+
 POSTGRES_PORT:5432
+
 SECRET_KEY=testsaynanovembre!!
 
 run uvicorn main:app --reload
