@@ -17,10 +17,10 @@ from sqlalchemy.orm import Session
 
 router = APIRouter()
 
-@router.get("/users/{token}", response_model=List[ShowAllUser])
+@router.get("/users", response_model=List[ShowAllUser])
 def get_all_user_(
     db: Session = Depends(get_db),
-    # current_user = Depends(get_current_user_from_token) , 
+    current_user = Depends(get_current_user_from_token) , 
     ):
     users = all_user(db=db)
     return users
@@ -58,13 +58,13 @@ def create_user(user_in: UserCreate, db: Session = Depends(get_db)):
         
     }
 
-@router.get("/user/{token}", response_model=ShowOneUser)
+@router.get("/user", response_model=ShowOneUser)
 def get_user_(
     current_user = Depends(get_current_user_from_token) , 
     db: Session = Depends(get_db)):
     return current_user
 
-@router.put("/user/{token}", response_model=Union[Msg, ShowOneUser])
+@router.put("/user", response_model=Union[Msg, ShowOneUser])
 def update_user_(
     user_in: UserUpdate,
     current_user = Depends(get_current_user_from_token) , 
