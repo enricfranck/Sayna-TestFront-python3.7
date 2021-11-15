@@ -11,7 +11,7 @@
 
 -cd backend/
 
--create a file .env
+-create a file .env into backend
 
 -past this:
 
